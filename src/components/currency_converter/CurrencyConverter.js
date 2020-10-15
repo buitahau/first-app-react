@@ -1,5 +1,6 @@
 import React from "react";
-import SelectorCurrency from "./SelectorCurrency.js"
+import SelectorCurrency from "./SelectorCurrency.js";
+import GroupCurrency from "./GroupCurrency.js";
 
 class CurrencyConverter extends React.Component {
 
@@ -9,8 +10,8 @@ class CurrencyConverter extends React.Component {
         this.handleInputOnChange = this.handleInputOnChange.bind(this);
     }
 
-    handleInputOnChange(event) {
-        this.setState({val : event.target.value});
+    handleInputOnChange(stateVal) {
+        console.log(stateVal);
     }
 
     render() {
@@ -20,14 +21,8 @@ class CurrencyConverter extends React.Component {
                 <fieldset>
                     <legend>Currency Converter</legend>
                     <div className="row">
-                        <div className="left_panel col-sm-6">
-                            <input type="text" onChange={this.handleInputOnChange} value={currentVal} />
-                            <SelectorCurrency />
-                        </div>
-                        <div className="right_panel col-sm-6">
-                            <input type="text" value={currentVal / 21000}/>
-                            <SelectorCurrency />
-                        </div>
+                        <GroupCurrency onChange={this.handleInputOnChange}/>
+                        <GroupCurrency onChange={this.handleInputOnChange}/>
                     </div>
                 </fieldset>
             </div>
